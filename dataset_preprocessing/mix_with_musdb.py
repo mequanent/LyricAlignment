@@ -21,15 +21,15 @@ import math
 
 if __name__ == "__main__":
 
-    random.seed(114514)
+    random.seed(114514) 
 
-    audio_dir = sys.argv[1]
-    augment_dir = sys.argv[2]
-    musdb_dir = sys.argv[3]
+    audio_dir = sys.argv[1] 
+    augment_dir = sys.argv[2] 
+    musdb_dir = sys.argv[3] 
 
-    snr = float(sys.argv[4])
+    snr = float(sys.argv[4]) 
 
-    print ("SNR:", snr)
+    print ("SNR:", snr) 
 
     if not os.path.exists(augment_dir):
         os.mkdir(augment_dir)
