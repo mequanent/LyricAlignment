@@ -46,7 +46,7 @@ if __name__ == "__main__":
 
     # SNR=-5, power=1/sqrt(10) times
     fixed_voc_to_acc_ratio = math.pow(10.0, snr / 10.0)
-    print ('Vocal to instrument energy ratio':, fixed_voc_to_acc_ratio)
+    print ('Vocal to instrument energy ratio: ', fixed_voc_to_acc_ratio)
     
     for audio_name in tqdm(os.listdir(audio_dir)):
         audio_path = os.path.join(audio_dir, audio_name)

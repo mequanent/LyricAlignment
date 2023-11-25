@@ -7,6 +7,8 @@ import sys, os
 from tqdm import tqdm
 import random
 
+# python ./dataset_preprocessing/demucs_dataset.py /host/home/data/MusicDatasets/MIR-1K/UndividedWavfile separated_mir_1K 
+
 device = 'cuda'
 model = pretrained.get_model(name="htdemucs").to(device)
 model.eval()
@@ -45,3 +47,26 @@ if __name__ == "__main__":
             44100,
             "PCM_16",
         )
+
+'''
+Installing with Apt
+1. Configure the repository:
+
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+  && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+    tee /etc/apt/sources.list.d/nvidia-container-toolkit.list \
+  && \
+    apt-get update
+
+2. Install the NVIDIA Container Toolkit packages:
+
+apt-get install -y nvidia-container-toolkit
+
+Configuring Docker
+Configure the container runtime by using the nvidia-ctk command:
+
+nvidia-ctk runtime configure --runtime=docker
+
+pip-autoremove torch 
+'''

@@ -64,6 +64,11 @@ python demucs_dataset.py [audio_dir] [separated_dir]
 
 This should be applied to both Opencpop and MIR-1k.
 
+**For MIR-1K:**
+`python ./dataset_preprocessing/demucs_dataset.py /host/home/data/MusicDatasets/MIR-1K/UndividedWavfile /host/home/data/MusicDatasets/MIR-1K/separated_mir_1K`
+**For Opencpop:**
+`python ./dataset_preprocessing/demucs_dataset.py /host/home/data/MusicDatasets/Opencpop/ /host/home/data/MusicDatasets/separated_opencpop`
+
 ### Run Spleeter (preprocessing, for ablation studies)
 
 ```
