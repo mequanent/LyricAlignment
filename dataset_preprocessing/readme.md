@@ -65,7 +65,8 @@ python demucs_dataset.py [audio_dir] [separated_dir]
 This should be applied to both Opencpop and MIR-1k.
 
 **For MIR-1K:**
-`python ./dataset_preprocessing/demucs_dataset.py /host/home/data/MusicDatasets/MIR-1K/UndividedWavfile /host/home/data/MusicDatasets/MIR-1K/separated_mir_1K`
+`python ./dataset_preprocessing/demucs_dataset.py /host/home/data/MusicDatasets/MIR-1K/UndividedWavfile /host/home/data/MusicDatasets/MIR-1K/separated_mir_1K` 
+
 **For Opencpop:**
 `python ./dataset_preprocessing/demucs_dataset.py /host/home/data/MusicDatasets/Opencpop/ /host/home/data/MusicDatasets/separated_opencpop`
 
@@ -76,6 +77,14 @@ python spleeter_dataset.py [audio_dir] [separated_dir]
 ```
 
 The arguments are the same as ``demucs_dataset.py``. To run this code, you have to install the Spleeter package (see [https://github.com/deezer/spleeter](https://github.com/deezer/spleeter)), which is not included in ``requirements.txt`` (as this was only used in ablation studies). Again, this should be applied to both Opencpop and MIR-1k.
+
+**For MIR:** 
+
+`python ./dataset_preprocessing/spleeter_dataset.py /host/home/data/MusicDatasets/MIR-1K/UndividedWavfile /host/home/data/MusicDatasets/MIR-1K_spleeter_separated`
+
+**For Opencpop:**
+
+`python ./dataset_preprocessing/spleeter_dataset.py /host/home/data/MusicDatasets/Opencpop/ /host/home/data/MusicDatasets/separated_opencpop`
 
 ### Add absolute song_path attributes
 
@@ -92,5 +101,9 @@ python replace_path.py [data_path] [output_path] [target_dir]
 `target_dir`: The directory to the audio files. The song_path will be ``str(Path(target_dir).joinpath(song_id))``, where ``song_id`` is the song_id attribute of each data sample. Make sure that this leads to the correct absolute path of the corresponding audio.
 
 As a reminder, to reproduce our experiments (exclude ablation studies), you need 3 JSON files (augmented with SNR=0, -5, -10, and use HT Demucs to extract vocals) for the training and validation set of Opencpop, 1 JSON file (without data augmentation) for Opencpop's test set, 1 JSON file (without data augmentation, and use HT Demucs to extract vocals) for the MIR-1k dataset.
+
+```
+python replace_path.py [/host/home/code/LyricAlignment/dataset_preprocessing/MIR1k_partial_align.json] [/host/home/code/LyricAlignment/dataset_preprocessing/MIR1k_absolute_path_for_partial_align.json] [target_dir]
+```
 
 **That's it :)**
